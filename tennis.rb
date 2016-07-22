@@ -2,17 +2,12 @@ class Score
 	def initialize ()
 		@p1=0
 		@p2=0
+		@newscore=@p1.to_s+"-"+@p2.to_s
+
 	end
 	
 	def display()
-		if (@p1==40 and @p2==40)
-			newscore="DEUCE"
-		elsif ((@p1-@p2).abs >= 20) and (@p1>=40 or @p2>=40)
-			newscore="Player WINS"
-		else  
-			newscore=@p1.to_s+"-"+@p2.to_s
-		end
-		return newscore
+		return @newscore
 	end
 
 	def addpoints (player, points)
@@ -25,12 +20,24 @@ class Score
 		else
 			return "Error: only can add 10 or 15 to score"
 		end
+
+		if (@p1==40 and @p2==40)
+			@newscore="DEUCE"
+		elsif ((@p1-@p2).abs == 10) and (@p1>40 or @p2>40)
+			@newscore="MATCH"
+		elsif ((@p1-@p2).abs >= 20) and (@p1>=40 or @p2>=40)
+			@newscore="Player WINS"
+		else  
+			@newscore=@p1.to_s+"-"+@p2.to_s
+		end
+
 		
 	end
 
 	def changescoreto(points1, points2)
 		@p1=points1
 		@p2=points2
+		@newscore=@p1.to_s+"-"+@p2.to_s
 	end
 
 end 

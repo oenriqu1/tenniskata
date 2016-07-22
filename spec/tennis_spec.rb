@@ -2,7 +2,7 @@ describe "test cases for tennis score" do
     before :each do
     	$scorenow=Score.new()
     end
-    it "Cisplays initial score to be 0-0" do
+    it "Displays initial score to be 0-0" do
         expect($scorenow.display).to eq("0-0")
     end
 
@@ -36,6 +36,13 @@ describe "test cases for tennis score" do
     it "Gives error when adding something else than 10 or 15" do
         $error=$scorenow.addpoints("p1", 8)
         expect($error).to eq("Error: only can add 10 or 15 to score")
+    end
+
+    it "Changes to match when DEUCE and one player scores" do
+        $scorenow.changescoreto(40, 30)
+        $scorenow.addpoints("p2",10)
+        $scorenow.addpoints("p2",10)
+        expect($scorenow.display).to eq("MATCH")
     end
 
 
