@@ -44,6 +44,4 @@ describe "test cases for tennis score" do
         $scorenow.addpoints("p2",10)
         expect($scorenow.display).to eq("MATCH")
     end
-
-
 end

@@ -3,7 +3,6 @@ class Score
 		@p1=0
 		@p2=0
 		@newscore=@p1.to_s+"-"+@p2.to_s
-
 	end
 	
 	def display()
@@ -30,8 +29,6 @@ class Score
 		else  
 			@newscore=@p1.to_s+"-"+@p2.to_s
 		end
-
-		
 	end
 
 	def changescoreto(points1, points2)
