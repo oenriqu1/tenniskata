@@ -16,11 +16,16 @@ class Score
 	end
 
 	def addpoints (player, points)
-		if player=="p1"
-			@p1=@p1+points
+		if points == 15 || points == 10  
+			if player=="p1"
+				@p1=@p1+points
+			else
+				@p2=@p2+points
+			end
 		else
-			@p2=@p2+points
+			return "Error: only can add 10 or 15 to score"
 		end
+		
 	end
 
 	def changescoreto(points1, points2)
